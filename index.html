@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB DESKTOP</title>
+</head>
+
+<body style="background-image: url(background.jpg);background-size:100%;">
+    <script src="layui/layer.js"></script>
+    <script>
+        layui.use('layer', function() {
+            layer = layui.layer;
+        });
+    </script>
+    <style>
+        .panel {
+            left: 0px;
+            position: absolute;
+            /* 设置绝对位置 */
+            bottom: 0px;
+            width: 100%;
+            vertical-align: bottom;
+            /* 固定到底部 */
+            background-color: gray;
+            height: 6%;
+            /* 面板高度，可自行调整 */
+            opacity: 0.4;
+            /*透明度*/
+        }
+    </style>
+    <div id="bottomBar" class="panel">
+        <img src="menu.png" id="button" style="max-height: 100%" />
+        <!-- <div size=100%>a</div> -->
+    </div>
+    <script>
+        document.getElementById("button").onmousedown = function() {
+            document.getElementById("button").setAttribute("style", "max-height: 100%;background-color:darkgray ")
+        }
+        document.getElementById("button").onmouseup = function() {
+            document.getElementById("button").setAttribute("style", "max-height: 100%;background-color: #grey")
+        }
+        document.getElementById("button").onclick = function() {
+            layer.open({
+                type: 2,
+                title: false,
+                closeBtn: 0, //不显示关闭按钮
+                shade: [0],
+                area: ['340px', '215px'],
+                offset: 'rb', //右下角弹出
+                anim: 2,
+                content: ['test/guodu.html', 'no'], //iframe的url，no代表不显示滚动条
+            });
+        }
+    </script>
+</body>
+
+</html>
